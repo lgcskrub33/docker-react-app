@@ -14,3 +14,15 @@ script:
 
 after_success:
  - echo "Test success good"
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "docker-react-app"
+  env: "DockerReactApp-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-780638063545"
+  bucket_path: "docker-react-app"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secreat_access_key: $AWS_SECRET_ACCESS_KEY
